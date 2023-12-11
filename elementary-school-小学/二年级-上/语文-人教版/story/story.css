@@ -1,0 +1,2 @@
+p:not(:has(img)) { font-size: 22px; display: block; width: 460px; }
+img { height: 400px; display: block; margin: 0 0 -50px auto; }
