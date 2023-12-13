@@ -6,6 +6,8 @@
 import sys
 import re
 
+from pypinyin import pinyin
+
 
 def build(md_fn):
     html_fn = md_fn.rsplit('.')[0] + '.html'
@@ -41,9 +43,18 @@ def build(md_fn):
 
         html_lines.append('<p>')
 
-        line = re.sub(r'([，。！])', r'\1()', line)
 
-        line = re.sub(r'(\S*?)\((.*?)\)', r' <span>\2<br/>&#8203;\1&#8203;</span> ', line)
+        elts = []
+        pinyins = pinyin(line)
+        for (py, char) in zip(pinyins, line):
+            span = '<span>{}<br/>{}</span>'.format(py[0], char)
+
+            elts.append(span)
+
+        line = ' '.join(elts)
+
+        #  line = re.sub(r'([，。！])', r'\1()', line)
+        #  line = re.sub(r'(\S*?)\((.*?)\)', r' <span>\2<br/>&#8203;\1&#8203;</span> ', line)
         html_lines.append(line)
 
         html_lines.append('</p>')

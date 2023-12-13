@@ -7,21 +7,8 @@ p:not(:has(img)) {
 }
 img { height: 400px; display: block; margin: 0 0 -50px auto; }
 
-/* distribute chars evenly in a line */
 span {
   /* background-color: #eee; */
   display: inline-block;
-  text-align: justify;
-  text-justify: inter-character;
-  margin: 0 3px -50px 3px;
-}
-span::before {
- content: '';
- display: inline-block;
- box-sizing: content-box;
-}
-span::after {
- content: '';
- display: inline-block;
- width: 100%;
+  text-align: center;
 }
