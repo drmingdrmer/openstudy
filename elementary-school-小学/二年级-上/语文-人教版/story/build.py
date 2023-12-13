@@ -41,7 +41,7 @@ def build(md_fn):
 
         html_lines.append('<p>')
 
-        line = re.sub(r'([，。])', r'\1()', line)
+        line = re.sub(r'([，。！])', r'\1()', line)
 
         line = re.sub(r'(\S*?)\((.*?)\)', r' <span>\2<br/>&#8203;\1&#8203;</span> ', line)
         html_lines.append(line)
