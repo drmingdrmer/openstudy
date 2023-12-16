@@ -33,6 +33,12 @@ def build(md_fn):
             title = line.lstrip('#').strip()
             continue
 
+        # extract text title
+        title_match = re.match(r'标题: (.*)', line)
+        if title_match is not None:
+            title = title_match.groups()[0].strip()
+            continue
+
         # extract img
         img_match = re.match(r'!\[\]\((.*)\)', line)
         if img_match is not None:
