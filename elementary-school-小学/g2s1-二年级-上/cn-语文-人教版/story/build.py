@@ -2,11 +2,16 @@
 # coding: utf-8
 
 # Build md into html to put pinyin on top of character
+#
+# Dep:
+#   pip install pypinyin
+#   pip install jieba
 
 import sys
 import re
 
 from pypinyin import pinyin
+import jieba
 
 
 def build(md_fn):
@@ -51,7 +56,10 @@ def build(md_fn):
 
 
         elts = []
-        pinyins = pinyin(line)
+
+        words = jieba.cut(line)
+        pinyins = pinyin(words)
+
         for (py, char) in zip(pinyins, line):
             span = '<span>{}<br/>{}</span>'.format(py[0], char)
 
@@ -59,8 +67,6 @@ def build(md_fn):
 
         line = ' '.join(elts)
 
-        #  line = re.sub(r'([，。！])', r'\1()', line)
-        #  line = re.sub(r'(\S*?)\((.*?)\)', r' <span>\2<br/>&#8203;\1&#8203;</span> ', line)
         html_lines.append(line)
 
         html_lines.append('</p>')
