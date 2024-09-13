@@ -86,3 +86,9 @@ s/\V\(\S\{-\}\)(\(\.\{-\}\))/<span>\2<br\/>\&#8203;\1\&#8203;<\/span>/g
 - `pdf/*`: 根据 对应名字 文件渲染的PDf, 用于打印.
 
 
+# 教材下载
+
+https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=390a6cd9-fb09-74d9-f4d3-b137a45431c8&catalogType=tchMaterial&subCatalog=tchMaterial
+
+
+http://www.dzkbw.com/books/beijing/yingyu/3s_2024/
